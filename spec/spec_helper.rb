@@ -1,5 +1,6 @@
 # Require this file for unit tests
 ENV['LOTUS_ENV'] ||= 'test'
+require 'byebug'
 require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
