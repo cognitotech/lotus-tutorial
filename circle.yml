@@ -6,13 +6,12 @@ dependencies:
   override:
     - gem install bundler
     - bundle install
-    - bundle exec rake:
-        environment:
-          CODECLIMATE_REPO_TOKEN: e046e1f4f625d68e9ab5ccb58b9026fd59a8f185aff5cdc44f33080946344181
 
 test:
   pre:
     - LOTUS_ENV=ci lotus db create
     - LOTUS_ENV=ci lotus db migrate
   override:
-    - bundle exec rspec
+    - bundle exec rspec:
+        environment:
+          CODECLIMATE_REPO_TOKEN: e046e1f4f625d68e9ab5ccb58b9026fd59a8f185aff5cdc44f33080946344181

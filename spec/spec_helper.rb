@@ -5,6 +5,7 @@ require "codeclimate-test-reporter"
 CodeClimate::TestReporter.start
 
 require_relative '../config/environment'
+Lotus::Application.preload!
 
 Dir[__dir__ + '/support/**/*.rb'].each { |f| require f }
 
