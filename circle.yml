@@ -1,0 +1,15 @@
+machine:
+  ruby:
+    version: 2.2.2
+
+dependencies:
+  pre:
+    - gem install bundler
+    - bundle install
+
+test:
+  pre:
+    - LOTUS_ENV=ci lotus db create
+    - LOTUS_ENV=ci lotus db migrate
+  override:
+    - bundle exec rspec
