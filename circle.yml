@@ -3,13 +3,12 @@ machine:
     version: 2.2.2
 
 dependencies:
-  pre:
+  override:
     - gem install bundler
     - bundle install
-  override:
-    - bundle exec rake
-    environment:
-      CODECLIMATE_REPO_TOKEN: e046e1f4f625d68e9ab5ccb58b9026fd59a8f185aff5cdc44f33080946344181
+    - bundle exec rake:
+        environment:
+          CODECLIMATE_REPO_TOKEN: e046e1f4f625d68e9ab5ccb58b9026fd59a8f185aff5cdc44f33080946344181
 
 test:
   pre:
