@@ -8,7 +8,7 @@ gem 'lotus-model',   '~> 0.4'
 gem 'pg'
 
 group :test do
-  gem 'minitest'
+  gem 'rspec'
   gem 'capybara'
 end
 
