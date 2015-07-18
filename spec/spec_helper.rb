@@ -6,6 +6,7 @@ CodeClimate::TestReporter.start
 
 require_relative '../config/environment'
 Lotus::Application.preload!
+require 'byebug'
 
 Dir[__dir__ + '/support/**/*.rb'].each { |f| require f }
 
@@ -53,6 +54,7 @@ RSpec.configure do |config|
 
   config.default_formatter = 'documentation'
   config.order = :random
+  config.color = true
 
 
 # The settings below are suggested to provide a good initial experience
