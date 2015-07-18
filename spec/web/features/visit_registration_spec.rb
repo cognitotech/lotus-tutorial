@@ -12,8 +12,8 @@ describe 'Visit Registration Page' do
     expect(page).to have_selector(:xpath, '//form//input[@type="email" and @name="sign_up[email]"]')
   end
 
-  it 'has display_name text field' do
-    expect(page).to have_selector(:xpath, '//form//input[@type="text" and @name="sign_up[display_name]"]')
+  it 'has name text field' do
+    expect(page).to have_selector(:xpath, '//form//input[@type="text" and @name="sign_up[name]"]')
   end
 
   it 'has password field' do
