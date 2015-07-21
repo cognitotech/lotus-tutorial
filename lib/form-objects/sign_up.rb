@@ -4,6 +4,6 @@ module FormObject
 
     attribute :email, type: String, presence: true, format: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i
     attribute :name, type: String, presence: true
-    attribute :password, confirmation: true
+    attribute :password, presence: true, confirmation: true
   end
 end
