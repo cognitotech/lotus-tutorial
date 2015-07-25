@@ -12,10 +12,10 @@
     <title>Lotus Tutorial</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="stylesheets/jumbotron.css" rel="stylesheet">
+    <link href="/stylesheets/jumbotron.css" rel="stylesheet">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -61,7 +61,7 @@
     </div>
 
     <div class="container">
-      <% if respond_to? :messages %>
+      <% if messages %>
         <% messages.each do |msg| %>
           <% if msg.is_a? Hash %>
             <%= flash_message(msg[:content], msg[:type], msg[:dismissable]) %>
@@ -85,6 +85,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
   </body>
 </html>

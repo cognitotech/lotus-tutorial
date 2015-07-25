@@ -18,10 +18,10 @@ describe Web::Controllers::Registration::Create do
   end
 
   context 'invalid params' do
-    let(:params) { Hash[sign_up: {email: '123'}] }
+    let(:params) { Hash[sign_up: {email: '123', password: '123', password_confirmation: '123', name: 'Khai'}] }
     it 'exposes error message' do
       action.call(params)
-      expect(action.exposures[:error]).to eq 'Invalid'
+      expect(action.exposures[:messages]).to match_array [{content: "email is invalid. Validation: format", type: :danger}]
     end
 
     it 'is successful' do

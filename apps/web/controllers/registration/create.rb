@@ -1,4 +1,3 @@
-require 'byebug'
 require_relative '../../../../lib/form-objects/sign_up'
 
 module Web::Controllers::Registration
@@ -14,7 +13,11 @@ module Web::Controllers::Registration
         UserRepository.create(user)
         redirect_to '/'
       else
-        @error = 'Invalid'
+        @messages = []
+        sign_up.errors.each do |error|
+          content = "#{error.attribute_name} is invalid. Validation: #{error.validation}"
+          @messages << {content: content, type: :danger}
+        end
       end
     end
   end
