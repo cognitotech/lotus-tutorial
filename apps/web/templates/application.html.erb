@@ -12,10 +12,10 @@
     <title>Lotus Tutorial</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <link href="/stylesheets/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="stylesheets/jumbotron.css" rel="stylesheet">
+    <link href="/stylesheets/jumbotron.css" rel="stylesheet">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -39,16 +39,24 @@
           <a class="navbar-brand" href="/">Lotus Tutorial</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right" id='login-form'>
-            <div class="form-group">
-              <input id='email' type="text" placeholder="Email" class="form-control">
-            </div>
-            <div class="form-group">
-              <input id='password' type="password" placeholder="Password" class="form-control">
-            </div>
-            <button type="submit" class="btn btn-success">Sign in</button>
-          </form>
-        </div><!--/.navbar-collapse -->
+          <% if current_user.nil? %>
+            <%=
+              form_for :sign_in, '/session', class: 'navbar-form navbar-right', id: 'login-form' do
+                div(class: 'form-group') do
+                  email_field :email, placeholder: 'Email', class: 'form-control', id: 'email'
+                end
+                div(class: 'form-group') do
+                  password_field :password, placeholder: 'Password', class: 'form-control', id: 'password'
+                end
+                submit 'Sign In', class: 'btn btn-success'
+              end
+            %>
+            <% else %>
+              <div class='navbar-form navbar-right'>
+                <%= link_to 'Sign Out', '/sign_out', class: 'btn btn-success' %>
+              </div>
+          <% end %>
+        </div>
       </div>
     </nav>
 
@@ -61,12 +69,22 @@
     </div>
 
     <div class="container">
+      <% if messages %>
+        <% messages.each do |msg| %>
+          <% if msg.is_a? Hash %>
+            <%= flash_message(msg[:content], msg[:type], msg[:dismissable]) %>
+          <% else %>
+            <%= flash_message(msg) %>
+          <% end %>
+        <% end %>
+      <% end %>
+
       <%= yield %>
 
       <hr>
 
       <footer>
-        <p>&copy; Company 2014</p>
+        <p>&copy; Silicon Straits Saigon 2015</p>
       </footer>
     </div> <!-- /container -->
 
@@ -75,6 +93,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
   </body>
 </html>

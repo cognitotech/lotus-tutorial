@@ -31,5 +31,10 @@ describe FormObject::SignUp do
       @form.password_confirmation = 'abc'
       expect(@form).not_to be_valid
     end
+
+    it 'validates password presence' do
+      @form.password = ''
+      expect(@form).not_to be_valid
+    end
   end
 end

@@ -13,6 +13,7 @@ group :test do
   gem 'capybara'
   gem 'guard-rspec'
   gem "codeclimate-test-reporter", require: nil
+  gem 'database_cleaner'
 end
 
 group :production do
