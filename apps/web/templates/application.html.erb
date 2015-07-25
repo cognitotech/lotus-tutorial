@@ -61,6 +61,16 @@
     </div>
 
     <div class="container">
+      <% if respond_to? :messages %>
+        <% messages.each do |msg| %>
+          <% if msg.is_a? Hash %>
+            <%= flash_message(msg[:content], msg[:type], msg[:dismissable]) %>
+          <% else %>
+            <%= flash_message(msg) %>
+          <% end %>
+        <% end %>
+      <% end %>
+
       <%= yield %>
 
       <hr>
