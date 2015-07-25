@@ -1,5 +1,5 @@
 require 'lotus/helpers'
-
+require_relative '../web/helpers/session_helper'
 module Web
   class Application < Lotus::Application
     configure do
@@ -183,6 +183,7 @@ module Web
       #
       # See: http://www.rubydoc.info/gems/lotus-controller#Configuration
       controller.prepare do
+        include SessionHelper
         expose :messages
         # include MyAuthentication # included in all the actions
         # before :authenticate!    # run an authentication before callback
