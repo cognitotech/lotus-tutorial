@@ -41,12 +41,12 @@
         <div id="navbar" class="navbar-collapse collapse">
           <% if current_user.nil? %>
             <%=
-              form_for :sign_in, '/session', class: 'navbar-form navbar-right' do
+              form_for :sign_in, '/session', class: 'navbar-form navbar-right', id: 'login-form' do
                 div(class: 'form-group') do
-                  email_field :email, placeholder: 'Email', class: 'form-control'
+                  email_field :email, placeholder: 'Email', class: 'form-control', id: 'email'
                 end
                 div(class: 'form-group') do
-                  password_field :password, placeholder: 'Password', class: 'form-control'
+                  password_field :password, placeholder: 'Password', class: 'form-control', id: 'password'
                 end
                 submit 'Sign In', class: 'btn btn-success'
               end
