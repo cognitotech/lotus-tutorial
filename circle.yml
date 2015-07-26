@@ -15,4 +15,4 @@ test:
   override:
     - bundle exec rspec:
         environment:
-          CODECLIMATE_REPO_TOKEN: 35c10c009a3161196fc226d8ee060ecf54df0a67f546da579bffecda7cea325735c10c009a3161196fc226d8ee060ecf54df0a67f546da579bffecda7cea3257
+          CODECLIMATE_REPO_TOKEN: 35c10c009a3161196fc226d8ee060ecf54df0a67f546da579bffecda7cea3257
